@@ -18,6 +18,9 @@ public class MainController {
     private BegeleiderRepo begeleiderRepo;
 
     @Autowired
+    private BegeleiderRolRepo begeleiderRolRepo;
+
+    @Autowired
     private ScheidsrechterRepo scheidsrechterRepo;
 
     @Autowired
@@ -62,9 +65,44 @@ public class MainController {
     }
 
     @GetMapping(path="/personen/getAll")
-    public @ResponseBody Iterable<Persoon> getAllUsers() {
+    public @ResponseBody Iterable<Persoon> getAllPersonen() {
         // This returns a JSON or XML with the users
         return persoonRepo.findAll();
+    }
+
+    @GetMapping(path="/teams/getAll")
+    public @ResponseBody Iterable<Team> getAllTeams(){
+        return teamRepo.findAll();
+    }
+
+    @GetMapping(path="/begeleiders/getAll")
+    public @ResponseBody Iterable<Begeleider> getAllBegeleiders(){
+        return begeleiderRepo.findAll();
+    }
+
+    @GetMapping(path="/clubs/getAll")
+    public @ResponseBody Iterable<Club> getAllClubs(){
+        return clubRepo.findAll();
+    }
+
+    @GetMapping(path="/scheidsrechters/getAll")
+    public @ResponseBody Iterable<Scheidsrechter> getAllScheidsrechters(){
+        return scheidsrechterRepo.findAll();
+    }
+
+    @GetMapping(path="/users/getAll")
+    public @ResponseBody Iterable<User> getAllUsers(){
+        return userRepo.findAll();
+    }
+
+    @GetMapping(path="/wedstrijden/getAll")
+    public @ResponseBody Iterable<Wedstrijd> getAllWedstrijden(){
+        return wedstrijdRepo.findAll();
+    }
+
+    @GetMapping(path="/begeleidersrollen/getAll")
+    public @ResponseBody Iterable<BegeleiderRol> getAllBegeleiderRoller(){
+        return begeleiderRolRepo.findAll();
     }
 
     @DeleteMapping(path="/clearTable")
