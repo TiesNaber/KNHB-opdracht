@@ -14,6 +14,25 @@ public class MainController {
     @Autowired
     private SpelerRepo spelerRepo; // Get spelerRepo Bean;
 
+    @Autowired
+    private BegeleiderRepo begeleiderRepo;
+
+    @Autowired
+    private ScheidsrechterRepo scheidsrechterRepo;
+
+    @Autowired
+    private TeamRepo teamRepo;
+
+    @Autowired
+    private WedstrijdRepo wedstrijdRepo;
+
+    @Autowired
+    private ClubRepo clubRepo;
+
+    @Autowired
+    private UserRepo userRepo;
+
+
     @PostMapping(path="/personen/addPersoon") // Map ONLY POST Requests
     public @ResponseBody String addNewPersoon (@RequestParam String name, @RequestParam String geboorteDatum,
                                                @RequestParam String adres, @RequestParam String postcode, @RequestParam String plaats
