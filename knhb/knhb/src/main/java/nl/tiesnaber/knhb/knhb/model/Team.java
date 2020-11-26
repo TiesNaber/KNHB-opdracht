@@ -1,4 +1,4 @@
-package nl.tiesnaber.knhb.knhb;
+package nl.tiesnaber.knhb.knhb.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +19,14 @@ public class Team {
     public Team(int club_ID, int begeleider_ID) {
         this.club_ID = club_ID;
         this.begeleider_ID = begeleider_ID;
+    }
+
+    public Integer getTeam_ID() {
+        return team_ID;
+    }
+
+    public void setTeam_ID(Integer team_ID) {
+        this.team_ID = team_ID;
     }
 
     public int getClub_ID() {

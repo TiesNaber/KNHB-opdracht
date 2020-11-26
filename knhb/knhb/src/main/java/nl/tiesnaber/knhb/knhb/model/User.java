@@ -1,4 +1,4 @@
-package nl.tiesnaber.knhb.knhb;
+package nl.tiesnaber.knhb.knhb.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +20,14 @@ public class User {
         this.userNaam = userNaam;
         this.wachtwoord = wachtwoord;
         this.email = email;
+    }
+
+    public Integer getUser_ID() {
+        return user_ID;
+    }
+
+    public void setUser_ID(Integer user_ID) {
+        this.user_ID = user_ID;
     }
 
     public String getUserNaam() {

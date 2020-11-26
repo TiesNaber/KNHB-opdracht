@@ -1,4 +1,4 @@
-package nl.tiesnaber.knhb.knhb;
+package nl.tiesnaber.knhb.knhb.model;
 
 import javax.persistence.Entity;
 
@@ -11,6 +11,8 @@ public class Begeleider extends Persoon {
         super(name, geboorteDatum, adres, postcode, plaats, email);
         this.rol_ID = rol_ID;
     }
+
+
 
     public int getRol_ID() {
         return rol_ID;

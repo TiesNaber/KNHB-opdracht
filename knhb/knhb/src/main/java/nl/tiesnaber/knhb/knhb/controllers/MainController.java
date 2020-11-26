@@ -1,5 +1,7 @@
-package nl.tiesnaber.knhb.knhb;
+package nl.tiesnaber.knhb.knhb.controllers;
 
+import nl.tiesnaber.knhb.knhb.model.*;
+import nl.tiesnaber.knhb.knhb.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -37,26 +39,21 @@ public class MainController {
 
 
     @PostMapping(path="/personen/addPersoon") // Map ONLY POST Requests
-    public @ResponseBody String addNewPersoon (@RequestParam String name, @RequestParam String geboorteDatum,
-                                               @RequestParam String adres, @RequestParam String postcode, @RequestParam String plaats
-                                               , @RequestParam String email) {
+    public @ResponseBody String addNewPersoon (@RequestBody Persoon persoon) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
-        Persoon p = new Persoon(name, geboorteDatum,adres,postcode,plaats,email);
+        Persoon p = persoon;
         persoonRepo.save(p);
         return "Created and saved new Persoon object";
     }
 
     @PostMapping(path="/spelers/addSpeler")
-    public @ResponseBody String addNewSpeler(@RequestParam String name, @RequestParam String geboorteDatum,
-                                             @RequestParam String adres, @RequestParam String postcode, @RequestParam String plaats
-                                            ,@RequestParam String email){
+    public @ResponseBody Speler addNewSpeler(@RequestBody Speler speler){
 
-        Speler sp = new Speler(name, geboorteDatum, adres,postcode,plaats,email,true);
-        spelerRepo.save(sp);
+        Speler sp = speler;
+        return spelerRepo.save(sp);
 
-        return "Created and saved new Speler object";
     }
 
     @GetMapping(path="/spelers/getAll")
@@ -67,6 +64,7 @@ public class MainController {
     @GetMapping(path="/personen/getAll")
     public @ResponseBody Iterable<Persoon> getAllPersonen() {
         // This returns a JSON or XML with the users
+
         return persoonRepo.findAll();
     }
 

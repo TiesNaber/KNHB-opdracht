@@ -1,4 +1,4 @@
-package nl.tiesnaber.knhb.knhb;
+package nl.tiesnaber.knhb.knhb.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,6 +27,14 @@ public class Club {
         this.postcode = postcode;
         this.telefoonNummer = telefoonNummer;
         this.email = email;
+    }
+
+    public Integer getClub_ID() {
+        return club_ID;
+    }
+
+    public void setClub_ID(Integer club_ID) {
+        this.club_ID = club_ID;
     }
 
     public String getNaam() {

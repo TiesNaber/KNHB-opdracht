@@ -1,4 +1,4 @@
-package nl.tiesnaber.knhb.knhb;
+package nl.tiesnaber.knhb.knhb.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

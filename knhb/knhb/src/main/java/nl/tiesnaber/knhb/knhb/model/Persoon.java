@@ -1,8 +1,6 @@
-package nl.tiesnaber.knhb.knhb;
+package nl.tiesnaber.knhb.knhb.model;
 
 import javax.persistence.*;
-import java.text.DateFormat;
-import java.util.Date;
 
 @Entity // This tells Hibernate to make a table out of this class
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -11,7 +9,7 @@ public class Persoon {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
-    private String name;
+    private String naam;
     private String geboorteDatum;
     private String adres;
     private String postcode;
@@ -19,8 +17,8 @@ public class Persoon {
     private String email;
 
 
-    public Persoon(String name, String geboorteDatum, String adres, String postcode, String plaats, String email) {
-        this.name = name;
+    public Persoon(String naam, String geboorteDatum, String adres, String postcode, String plaats, String email) {
+        this.naam = naam;
         this.geboorteDatum = geboorteDatum;
         this.adres = adres;
         this.postcode = postcode;
@@ -36,12 +34,12 @@ public class Persoon {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNaam() {
+        return naam;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNaam(String naam) {
+        this.naam = naam;
     }
 
     public String getEmail() {

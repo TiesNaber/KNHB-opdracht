@@ -1,8 +1,7 @@
-package nl.tiesnaber.knhb.knhb;
+package nl.tiesnaber.knhb.knhb.model;
 
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 public class Speler extends Persoon{
@@ -12,8 +11,8 @@ public class Speler extends Persoon{
 
     private boolean speelgerechtigd;
 
-    public Speler(String name, String geboorteDatum, String adres, String postcode, String plaats, String email, boolean speelgerechtigd) {
-        super(name, geboorteDatum, adres, postcode, plaats, email);
+    public Speler(String naam, String geboorteDatum, String adres, String postcode, String plaats, String email, boolean speelgerechtigd) {
+        super(naam, geboorteDatum, adres, postcode, plaats, email);
         this.speelgerechtigd = speelgerechtigd;
     }
 

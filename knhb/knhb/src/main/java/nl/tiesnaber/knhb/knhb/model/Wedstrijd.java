@@ -1,4 +1,4 @@
-package nl.tiesnaber.knhb.knhb;
+package nl.tiesnaber.knhb.knhb.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,6 +27,14 @@ public class Wedstrijd {
         this.wedstrijdDatum = wedstrijdDatum;
         this.doelpuntenThuis = doelpuntenThuis;
         this.doelpuntenUit = doelpuntenUit;
+    }
+
+    public Integer getWedstrijd_ID() {
+        return wedstrijd_ID;
+    }
+
+    public void setWedstrijd_ID(Integer wedstrijd_ID) {
+        this.wedstrijd_ID = wedstrijd_ID;
     }
 
     public int getScheidsPersoon_ID() {

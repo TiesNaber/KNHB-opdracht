@@ -8,6 +8,7 @@ public class KnhbApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KnhbApplication.class, args);
+
 	}
 
 }
