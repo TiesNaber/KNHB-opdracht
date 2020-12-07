@@ -20,6 +20,10 @@ public class Club {
     private String telefoonNummer;
     private String email;
 
+    public Club(){
+
+    }
+
     public Club(String naam, String adres, String plaats, String postcode, String telefoonNummer, String email) {
         this.naam = naam;
         this.adres = adres;
@@ -27,6 +31,8 @@ public class Club {
         this.postcode = postcode;
         this.telefoonNummer = telefoonNummer;
         this.email = email;
+
+ 
     }
 
     public Integer getClub_ID() {

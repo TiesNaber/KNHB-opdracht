@@ -16,6 +16,41 @@ public class Persoon {
     private String plaats;
     private String email;
 
+    public Persoon(){
+
+    }
+
+    public String getGeboorteDatum() {
+        return geboorteDatum;
+    }
+
+    public void setGeboorteDatum(String geboorteDatum) {
+        this.geboorteDatum = geboorteDatum;
+    }
+
+    public String getAdres() {
+        return adres;
+    }
+
+    public void setAdres(String adres) {
+        this.adres = adres;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
+
+    public String getPlaats() {
+        return plaats;
+    }
+
+    public void setPlaats(String plaats) {
+        this.plaats = plaats;
+    }
 
     public Persoon(String naam, String geboorteDatum, String adres, String postcode, String plaats, String email) {
         this.naam = naam;

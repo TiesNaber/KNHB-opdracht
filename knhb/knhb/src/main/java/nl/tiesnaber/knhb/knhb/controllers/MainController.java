@@ -31,8 +31,7 @@ public class MainController {
     @Autowired
     private WedstrijdRepo wedstrijdRepo;
 
-    @Autowired
-    private ClubRepo clubRepo;
+
 
     @Autowired
     private UserRepo userRepo;
@@ -52,8 +51,9 @@ public class MainController {
     public @ResponseBody Speler addNewSpeler(@RequestBody Speler speler){
 
         Speler sp = speler;
-        return spelerRepo.save(sp);
-
+        Speler newPlayer = spelerRepo.save(sp);
+      
+        return spelerRepo.findById(newPlayer.getId()).get();
     }
 
     @GetMapping(path="/spelers/getAll")
@@ -78,10 +78,7 @@ public class MainController {
         return begeleiderRepo.findAll();
     }
 
-    @GetMapping(path="/clubs/getAll")
-    public @ResponseBody Iterable<Club> getAllClubs(){
-        return clubRepo.findAll();
-    }
+
 
     @GetMapping(path="/scheidsrechters/getAll")
     public @ResponseBody Iterable<Scheidsrechter> getAllScheidsrechters(){

@@ -11,6 +11,10 @@ public class Speler extends Persoon{
 
     private boolean speelgerechtigd;
 
+    public Speler(){
+
+    }
+
     public Speler(String naam, String geboorteDatum, String adres, String postcode, String plaats, String email, boolean speelgerechtigd) {
         super(naam, geboorteDatum, adres, postcode, plaats, email);
         this.speelgerechtigd = speelgerechtigd;
