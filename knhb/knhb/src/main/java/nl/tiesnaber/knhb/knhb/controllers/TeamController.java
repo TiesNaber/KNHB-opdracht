@@ -26,6 +26,8 @@ public class TeamController {
         return teamRepo.findAll();
     }
 
+
+
     @GetMapping(path = "/teams/getByID{id}")
     public @ResponseBody
     Team getTeamByID(@PathVariable Integer id) {
