@@ -16,6 +16,10 @@ public class Team {
     private int club_ID;
     private String teamNaam;
 
+    public Team(){
+
+    }
+
     public Team(Integer club_ID, String teamNaam) {
         this.club_ID = club_ID;
         this.teamNaam = teamNaam;

@@ -68,10 +68,6 @@ public class MainController {
         return persoonRepo.findAll();
     }
 
-    @GetMapping(path="/teams/getAll")
-    public @ResponseBody Iterable<Team> getAllTeams(){
-        return teamRepo.findAll();
-    }
 
     @GetMapping(path="/begeleiders/getAll")
     public @ResponseBody Iterable<Begeleider> getAllBegeleiders(){
