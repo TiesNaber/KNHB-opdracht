@@ -1,10 +1,14 @@
 package nl.tiesnaber.knhb.knhb.controllers;
-
 import nl.tiesnaber.knhb.knhb.model.*;
 import nl.tiesnaber.knhb.knhb.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
+import java.util.List;
 
 @Controller // This means that this class is a Controller
 @CrossOrigin(origins = "*")
@@ -42,6 +46,7 @@ public class TeamController {
         } else {
             System.out.println("No such team found");
         }
+
     }
 
     @PutMapping(path = "/teams/update{id}")
@@ -56,4 +61,15 @@ public class TeamController {
                     return teamRepo.save(newTeam);
                 });
     }
+
+    @GetMapping(path="/teams/byClubID{id}")
+    public @ResponseBody Iterable<Team> getTeamsByClubId(@PathVariable Integer id){
+
+        return findByClubID(id);
+    }
+
+    private Iterable<Team> findByClubID(Integer id){
+        return teamRepo.findByClubID(id);
+    }
+
 }
