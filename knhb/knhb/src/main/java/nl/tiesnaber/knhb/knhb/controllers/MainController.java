@@ -37,36 +37,6 @@ public class MainController {
     private UserRepo userRepo;
 
 
-    @PostMapping(path="/personen/addPersoon") // Map ONLY POST Requests
-    public @ResponseBody String addNewPersoon (@RequestBody Persoon persoon) {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
-
-        Persoon p = persoon;
-        persoonRepo.save(p);
-        return "Created and saved new Persoon object";
-    }
-
-    @PostMapping(path="/spelers/addSpeler")
-    public @ResponseBody Speler addNewSpeler(@RequestBody Speler speler){
-
-        Speler sp = speler;
-        Speler newPlayer = spelerRepo.save(sp);
-      
-        return spelerRepo.findById(newPlayer.getId()).get();
-    }
-
-    @GetMapping(path="/spelers/getAll")
-    public @ResponseBody Iterable<Speler> getAllSpelers(){
-        return spelerRepo.findAll();
-    }
-
-    @GetMapping(path="/personen/getAll")
-    public @ResponseBody Iterable<Persoon> getAllPersonen() {
-        // This returns a JSON or XML with the users
-
-        return persoonRepo.findAll();
-    }
 
 
     @GetMapping(path="/begeleiders/getAll")
