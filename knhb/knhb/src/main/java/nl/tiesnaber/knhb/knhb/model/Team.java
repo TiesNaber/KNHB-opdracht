@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.ArrayList;
 
 @Entity
 public class Team {
@@ -16,6 +17,8 @@ public class Team {
     private int club_ID;
     private String teamNaam;
 
+    private ArrayList<Speler> spelers;
+
     public Team(){
 
     }
@@ -23,6 +26,22 @@ public class Team {
     public Team(Integer club_ID, String teamNaam) {
         this.club_ID = club_ID;
         this.teamNaam = teamNaam;
+    }
+
+    public void addSpeler(Speler speler){
+
+        if(speler !=null){
+            speler.setTeam_ID(team_ID);
+            spelers.add(speler);
+        }
+    }
+
+    public ArrayList<Speler> getSpelers() {
+        return spelers;
+    }
+
+    public void setSpelers(ArrayList<Speler> spelers) {
+        this.spelers = spelers;
     }
 
     public String getTeamNaam() {
