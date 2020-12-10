@@ -35,15 +35,10 @@ public class SpelerController {
         return spelerRepo.findById(id).get();
     }
 
-    @DeleteMapping(path = "/spelers/deleteAllClubs")
-    public @ResponseBody
-    void clearTable() {
-        spelerRepo.deleteAll();
-    }
 
     @DeleteMapping(path = "/spelers/deleteByID{id}")
     public @ResponseBody
-    void deleteClubByID(@PathVariable Integer id) {
+    void deleteSpelerByID(@PathVariable Integer id) {
         if (spelerRepo.findById(id).isPresent()) {
             spelerRepo.deleteById(id);
 
@@ -52,25 +47,43 @@ public class SpelerController {
         }
     }
 
+    @GetMapping(path="/spelers/byClubID{id}")
+    public @ResponseBody Iterable<Speler> getPlayersByClubID(@PathVariable Integer id){
+
+        return findByClubID(id);
+    }
+
+    private Iterable<Speler> findByClubID(Integer id){
+        return spelerRepo.findByClubID(id);
+    }
+
+    @GetMapping(path="/spelers/byTeamID{id}")
+    public @ResponseBody Iterable<Speler> getPlayersByTeamID(@PathVariable Integer id){
+
+        return findByTeamID(id);
+    }
+
+    private Iterable<Speler> findByTeamID(Integer id){
+        return spelerRepo.findByTeamID(id);
+    }
 
 
-    /*
-    @PutMapping(path = "/clubs/update{id}")
+    @PutMapping(path = "/spelers/update{id}")
     public @ResponseBody
-    Speler updateClub(@RequestBody Speler newClub, @PathVariable Integer id) {
+    Speler updatePlayer(@RequestBody Speler newSpeler, @PathVariable Integer id) {
         return spelerRepo.findById(id)
-                .map(club -> {
-                    club.setNaam(newClub.getNaam());
-                    club.setAdres(newClub.getAdres());
-                    club.setPlaats(newClub.getPlaats());
-                    club.setPostcode(newClub.getPostcode());
-                    club.setTelefoonNummer(newClub.getTelefoonNummer());
-                    club.setEmail(newClub.getEmail());
-                    return this.spelerRepo.save(club);
+                .map(speler -> {
+                    speler.setNaam(newSpeler.getNaam());
+                    speler.setAdres(newSpeler.getAdres());
+                    speler.setPlaats(newSpeler.getPlaats());
+                    speler.setPostcode(newSpeler.getPostcode());
+                    speler.setEmail(newSpeler.getEmail());
+                    speler.setSpeelgerechtigd(newSpeler.isSpeelgerechtigd());
+                    return this.spelerRepo.save(speler);
                 }).orElseGet(() -> {
-                    newClub.setClub_ID(id);
-                    return spelerRepo.save(newClub);
+                    newSpeler.setClub_ID(id);
+                    return spelerRepo.save(newSpeler);
                 });
     }
-    */
+
 }

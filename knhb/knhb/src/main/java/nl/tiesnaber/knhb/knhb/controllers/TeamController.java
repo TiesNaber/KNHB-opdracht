@@ -2,13 +2,9 @@ package nl.tiesnaber.knhb.knhb.controllers;
 import nl.tiesnaber.knhb.knhb.model.*;
 import nl.tiesnaber.knhb.knhb.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collection;
-import java.util.List;
 
 @Controller // This means that this class is a Controller
 @CrossOrigin(origins = "*")
@@ -29,8 +25,6 @@ public class TeamController {
     Iterable<Team> getAllTeams() {
         return teamRepo.findAll();
     }
-
-
 
     @GetMapping(path = "/teams/getByID{id}")
     public @ResponseBody

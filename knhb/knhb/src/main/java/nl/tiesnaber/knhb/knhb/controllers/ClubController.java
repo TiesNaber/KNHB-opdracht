@@ -33,11 +33,6 @@ public class ClubController {
         return clubRepo.findById(id).get();
     }
 
-    @DeleteMapping(path = "/clubs/deleteAllClubs")
-    public @ResponseBody
-    void clearTable() {
-        clubRepo.deleteAll();
-    }
 
     @DeleteMapping(path = "/clubs/deleteByID{id}")
     public @ResponseBody
