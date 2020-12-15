@@ -3,7 +3,7 @@ package nl.tiesnaber.knhb.knhb.model;
 import javax.persistence.*;
 
 @Entity // This tells Hibernate to make a table out of this class
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Persoon {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)

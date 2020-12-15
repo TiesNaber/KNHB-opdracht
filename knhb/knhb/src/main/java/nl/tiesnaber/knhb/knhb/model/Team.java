@@ -17,7 +17,6 @@ public class Team {
     private int club_ID;
     private String teamNaam;
 
-    private ArrayList<Speler> spelers;
 
     public Team(){
 
@@ -28,21 +27,6 @@ public class Team {
         this.teamNaam = teamNaam;
     }
 
-    public void addSpeler(Speler speler){
-
-        if(speler !=null){
-            speler.setTeam_ID(team_ID);
-            spelers.add(speler);
-        }
-    }
-
-    public ArrayList<Speler> getSpelers() {
-        return spelers;
-    }
-
-    public void setSpelers(ArrayList<Speler> spelers) {
-        this.spelers = spelers;
-    }
 
     public String getTeamNaam() {
         return teamNaam;
