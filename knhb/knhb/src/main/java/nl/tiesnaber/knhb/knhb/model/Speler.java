@@ -4,6 +4,7 @@ package nl.tiesnaber.knhb.knhb.model;
 import javax.persistence.*;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "id")
 public class Speler extends Persoon{
 
     private int Club_ID;
